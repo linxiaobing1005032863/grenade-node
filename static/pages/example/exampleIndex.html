@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北京艾佳天诚信息技术有限公司</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/example.css">
+</head>
+
+<body>
+    <!--头部导航-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+    </nav>
+    <div class="example">
+        <img src="../../images/example/banner.jpg" class="img-responsive">
+        <div class="list">
+            <section class="mainTitle">
+                优秀案例
+                <small>IKE SERVICE</small>
+            </section>
+            <section class="btnC">
+                <div class="search">
+                    <div class="input-holder">
+                        <input type="text" class="search-input" placeholder="搜索" />
+                        <img src="../../images/search.png"  class="img-responsive" onclick="searchToggle();">
+                    </div>
+                </div>
+                <div class="choose">
+                    <span>案例分析：</span>
+                    <ul id="analyze" class="analyzeClass">
+                        <li class="active" onclick="doList(this)" value="0">ALL</li>
+                    </ul>
+                </div>
+                <div class="choose">
+                    <span>地区分类：</span>
+                    <ul id="area">
+                        <li class="active" onclick="doArea(this)" value="0">ALL</li>
+                    </ul>
+                </div>
+                <div id="temps" class="choose">
+                    <span>时间分类：</span>
+                    <ul class="tempsClass">
+                        <li class="time-type active" value="0">ALL</li>
+                        <li class="time-type" value="1">近一个星期</li>
+                        <li class="time-type" value="2">近一个月</li>
+                        <li class="time-type" value="3">近三个月</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="row" id="caseList">
+            </section>
+            <nav aria-label="Page navigation" class="pageNum notice-footer" id="paging"></nav>
+        </div>
+    </div>
+    <!--底部导航-->
+    <footer></footer>
+</body>
+
+</html>
+<script src="/js/tools.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/extendPagination.js"></script>
+<script src="/js/all.js"></script>
+<script src="/js/ajaxExample.js"></script>

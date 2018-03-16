@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand logo" href="javascript:void(0)">
+            <div></div>
+            <span class="visible-xs">北京艾佳天诚信息技术有限公司</span>
+        </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="/index.html" class="active">首页</a>
+            </li>
+            <li>
+                <a href="/bid/bidIndex.html">最新招标</a>
+            </li>
+            <li>
+                <a href="/service/serviceIndex.html">主要服务</a>
+            </li>
+            <li>
+                <a href="/example/exampleIndex.html">案例</a>
+            </li>
+            <li>
+                <a href="/trend/trendIndex.html">公司动态</a>
+            </li>
+            <li>
+                <a href="/we/weIndex.html">关于我们</a>
+            </li>
+            <li>
+                <a href="/join/joinIndex.html">加入我们</a>
+            </li>
+            <li class="visible-xs">
+                <a href="https://show.issp.bjike.com/index">ISSP系统首页</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    var index;
+    var arr = [location.host, 'bid', 'service', 'example', 'trend', 'we', 'join'];
+    var host = location.host;
+    var test = location.href.split('/').slice(-2)[0] == location.host ? location.host : location.href.split('/').slice(-
+        2)[0];
+    for (var i = 0, len = arr.length; i < len; i++) {
+        if (test == arr[i]) {
+            index = i;
+            break;
+        }
+    }
+    $('.navbar-nav li a').removeClass("active").eq(index).addClass('active');
+</script>

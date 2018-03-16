@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北京艾佳天诚信息技术有限公司</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bid.css">
+</head>
+
+<body>
+    <!--头部导航-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+    </nav>
+    <div class="content">
+        <section class="updateNews">
+            <span>最新动态:</span>
+            <div id="demo" class="topBox">
+                <div class="topNews">
+                    <div id="demo1">
+                        <ul class="crosswise">
+                        </ul>
+                    </div>
+                    <div id="demo2"></div>
+                </div>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="main">
+                    <div class="top">
+                        <span>最新招标</span>
+                        <div class="search">
+                            <div class="input-holder">
+                                <input type="text" class="search-input" placeholder="搜索" />
+                                <img src="../../images/search.png" class="img-responsive" onclick="searchToggle();">
+                            </div>
+                        </div>
+                    </div>
+                    <section class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <select id="bidArea" onchange="bidSelect()">
+                                <option disabled="true">--地区--</option>
+                                <option value="all">全部</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <select id="bidTime" onchange="bidSelect()">
+                                <option disabled="true">--时间--</option>
+                                <option value="0">全部</option>
+                                <option value="1">近一个月</option>
+                                <option value="2">近三个月</option>
+                                <option value="3">近半月</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <select id="bidType" onchange="bidSelect()">
+                                <option disabled="true">--类型--</option>
+                                <option value="all">全部</option>
+                            </select>
+                        </div>
+                    </section>
+                    <ul class="tab-content" id="mainBid"></ul>
+                    <nav aria-label="Page navigation" class="pageNum" id="paging">
+                        <ul class="pagination"></ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="right-top">
+                    <span class="topChinese">头条招标</span>
+                    <p class="topEnglish">NEWS</p>
+                    <div class="maquee" id="headlineScroll">
+                        <ul id="headlineScrollList">
+                        </ul>
+                    </div>
+                </div>
+                <div class="right-bottom">
+                    <div class="title">
+                        <span>开标</span>
+                    </div>
+                    <div class="maquee" id="recommendScroll">
+                        <ul id="bidOpeningList"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--底部导航-->
+    <footer></footer>
+</body>
+
+</html>
+<script src="../../js/tools.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/extendPagination.js"></script>
+<script src="../../js/all.js"></script>
+<script src="../../js/ajaxBid.js"></script>

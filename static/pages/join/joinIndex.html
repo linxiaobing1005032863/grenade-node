@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北京艾佳天诚信息技术有限公司</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/join.css">
+</head>
+
+<body>
+    <!--头部导航-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+    </nav>
+    <div class="join">
+        <img src="../../images/join/banner.jpg" class="img-responsive">
+
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <span>搜索近期公告</span>
+                <div class="form-group">
+                    <div class="col-sm-9 col-xs-9">
+                        <input class="form-control search-input">
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <button class="btn btn-info" onclick="searchToggle()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                所有招聘类型
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <ul id="recruit">
+                                    <li class="active hah" value="0" onclick="jobList(this)">全部</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                所有地区
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul id="area">
+                                    <li class="active" value="0" onclick="areaList(this)">全部</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                所有职位分类
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <ul id="post">
+                                    <li class="active" value="0" onclick="postList(this)">全部</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="join-fot">
+                    <img src="/images/join/question.png" class="img-responsive">
+                    <p>
+                        <span>如有问题，欢迎联系我们</span>
+                        <span>zhzyb_aj@163.com</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="panel-group" id="job" role="tablist" aria-multiselectable="true">
+                    <p class="title" id="jobBrother">
+                        <span class="name1">职位名称</span>
+                        <span class="name2 hidden-xs">分类</span>
+                        <span class="name3">城市</span>
+                        <span class="name4"></span>
+                    </p>
+                </div>
+                <nav aria-label="Page navigation" class="pageNum" id="paging">
+                    <ul class="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--底部导航-->
+    <footer></footer>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">上传简历附件</h4>
+                </div>
+                <div class="modal-body body1">
+                    <div>
+                        <img src="../../images/join/resume.png" class="img-responsive">支持word、jpg、png、zip格式
+                    </div>
+                    <input type="file" name="file" onchange="upload(this)" id="FileUpload" accept=".zip,.doc,.png,.jpg"/>
+                    <button id="browse" class="file" onclick="doUpload()">确认上传</button>
+                </div>
+                <div class="modal-body body2">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100%">
+                            <span class="sr-only">0% Complete (warning)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body body3">
+                    <div class="success">
+                        <img src="../../images/join/success.png" class="img-responsive">上传成功！感谢您投的简历，祝您生活愉快！
+                    </div>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src="../../images/join/close.png" class="img-responsive">
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="/js/tools.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/extendPagination.js"></script>
+<script src="/js/upload/plupload.full.min.js"></script>
+<script src="/js/all.js"></script>
+<script src="/js/ajaxJoin.js"></script>

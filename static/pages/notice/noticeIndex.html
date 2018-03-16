@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北京艾佳天诚信息技术有限公司</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/notice.css">
+</head>
+
+<body>
+    <!--头部导航-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+    </nav>
+    <div class="notice">
+        <img src="../../images/notice/banner.png" class="img-responsive">
+        <p class="way">
+            <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;当前位置：
+            <a href="../index.html">首页</a>&nbsp;&gt;&nbsp;
+            <a href="../trend/trendIndex.html">公司动态</a>&nbsp;&gt;&nbsp;公告
+        </p>
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <span>搜索近期公告</span>
+                <div class="form-group">
+                    <div class="col-sm-9 col-xs-9">
+                        <input class="form-control search-input" type="text">
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <button class="btn btn-info" onclick="searchToggle()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                所有地区
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <ul id="area">
+                                    <li class="active" value="0" onclick="btnArea(this)">全部</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                所有部门
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul id="department">
+                                    <li class="active" value="0" onclick="btnDepart(this)">全部</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                所有时间
+                                <span class="glyphicon glyphicon-triangle-bottom    "></span>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <ul>
+                                    <li class="active time-type" value="0">全部</li>
+                                    <li value="1" class="time-type">近一个月</li>
+                                    <li value="2" class="time-type">近三个月</li>
+                                    <li value="3" class="time-type">近半年</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="join-fot">
+                    <img src="/images/join/question.png" class="img-responsive">
+                    <p>
+                        <span>如有问题，欢迎联系我们</span>
+                        <span>zhzyb_aj@163.com</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <ul class="noticeList" id="list"></ul>
+                <nav aria-label="Page navigation" class="pageNum" id="paging">
+                    <ul class="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--底部导航-->
+    <footer></footer>
+</body>
+
+</html>
+<script src="/js/tools.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/extendPagination.js"></script>
+<script src="/js/all.js"></script>
+<script src="/js/ajaxNotice.js"></script>

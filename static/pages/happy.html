@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        img {
+            display: none;
+        }
+
+        audio {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="100" height="100"></canvas>
+</body>
+<script>
+    var audio = document.createElement("audio");
+    audio.src = "chongai.mp3";
+    audio.addEventListener("canplaythrough",
+        function () {
+            audio.play();
+            audio.loop = true;
+        },
+        false);
+
+    // audio.addEventListener("timeupdate", function(){console.log(audio.currentTime)}, true);
+
+    var canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d"),
+        w = canvas.width = window.innerWidth,
+        h = canvas.height = window.innerHeight,
+        particles = [],
+        pos = { x: w / 2, y: h / 2 };
+
+    function Particle() {
+        this.x = pos.x;
+        this.y = pos.y;
+        this.r = 0.03;
+        this.color = "#" + ((Math.random() * 0xffffff) | 0).toString(16);
+        this.vx = random(-5, 5);
+        this.vy = random(-3, 3);
+    }
+
+    Particle.prototype.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.r += 0.02;
+    }
+
+    Particle.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    function spawn() {
+        var p = new Particle();
+        particles.push(p);
+    }
+
+    function render() {
+        ctx.fillStyle = "rgba(0,0,0,.1)";
+        ctx.fillRect(0, 0, w, h);
+        for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.draw();
+            p.update();
+            p.r > 5 && particles.splice(i, 1)
+        }
+    }
+
+    ~function () {
+        spawn();
+        render();
+        ctx.font = "40px Arial";
+        ctx.fillText("Happy New Year", 30, 50);
+        requestAnimationFrame(arguments.callee);
+    }()
+
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    document.onmousemove = function (e) {
+        pos.x = e.pageX;
+        pos.y = e.pageY;
+    }
+
+    var bool = true;
+    document.ontouchstart = function () {
+        if (bool) {
+            audio.play();
+            bool = false;
+        }
+    }
+    function ismobile(test) {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            if (window.location.href.indexOf("?mobile") < 0) {
+                try {
+                    if (/iPhone|mac|iPod|iPad/i.test(navigator.userAgent)) {
+                        return '0';
+                    } else {
+                        return '1';
+                    }
+                } catch (e) { }
+            }
+        } else if (u.indexOf('iPad') > -1) {
+            return '0';
+        } else {
+            return '1';
+        }
+    };
+    console.log(ismobile())
+</script>
+
+</html>

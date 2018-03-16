@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北京艾佳天诚信息技术有限公司</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <!--头部导航-->
+    <nav class="navbar navbar-default navbar-fixed-top"></nav>
+
+    <div class="content">
+        <!-- banner轮播 -->
+        <section class="carousel slide banner" data-ride="carousel" id="carousel-example-generic">
+            <ol class="carousel-indicators">
+            </ol>
+            <div class="carousel-inner" role="listbox" id="banner"></div>
+        </section>
+
+        <!-- 新闻资讯 -->
+        <section class="data container-fluid">
+            <!-- 第一行 -->
+            <div class="row sameHeight">
+                <!-- 招标图片 -->
+                <a class="col-md-6 col-sm-12 col-xs-12 hidden-xs hidden-sm" id="bidImg" href="/bid/bidIndex.html"></a>
+                <!-- 招标滚动 -->
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="indexSelectNav">
+                        <div class="selectNav">
+                            <div class="selectBtn">
+                                <span>最新招标</span>
+                                <select id="bidArea" onchange="bidChoice()">
+                                    <option disabled="true">--地区--</option>
+                                    <option value="all">全部</option>
+                                </select>
+                                <select id="bidWebsite" onchange="bidChoice()">
+                                    <option disabled="true">--网站--</option>
+                                    <option value="all">全部</option>
+                                </select>
+                            </div>
+                            <a href="bid/bidIndex.html">更多&nbsp;&gt;</a>
+                        </div>
+                        <p>NEWS</p>
+                    </div>
+                    <div class="maquee" id="newsScroll">
+                        <ul id="newsScrollList"></ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 第二行 -->
+            <div class="row indexOther different">
+                <!-- 企业公告 -->
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="indexSelectNav">
+                        <div class="selectNav">
+                            <div class="selectBtn">
+                                <span>企业公告</span>
+                                <select id="noticeDep" onchange="noticeChoice()">
+                                    <option disabled="true">--部门--</option>
+                                    <option value="0">全部</option>
+                                </select>
+                                <select id="noticeArea" onchange="noticeChoice()">
+                                    <option disabled="true">--地区--</option>
+                                    <option value="0">全部</option>
+                                </select>
+                            </div>
+                            <a href="notice/noticeIndex.html">更多&nbsp;&gt;</a>
+                        </div>
+                        <p>Announcement</p>
+                    </div>
+                    <div class="maquee" id="noticeScroll">
+                        <ul id="noticeScrollList">
+                        </ul>
+                    </div>
+                </div>
+                <!-- 企业活动 -->
+                <div class="col-md-6 col-sm-12 col-xs-12 trendImg">
+                    <div class="indexSelectNav">
+                        <div class="selectNav">
+                            <div class="selectBtn">
+                                <span>企业活动</span>
+                                <select id="activeDep" onchange="companyChoiceDep()">
+                                    <option disabled="true">--部门--</option>
+                                    <option value="0">全部</option>
+                                </select>
+                            </div>
+                            <a href="trend/trendIndex.html">更多&nbsp;&gt;</a>
+                        </div>
+                        <p>Campaign</p>
+                    </div>
+                    <div id="active" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox" id="activeList"></div>
+
+                        <a class="left carousel-control" href="#active" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#active" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 第三行 -->
+            <div class="row indexOther sameHeight">
+                <!-- 企业案例轮播 -->
+                <div class="col-md-6 col-sm-12 col-xs-12 caseImg hidden-xs hidden-sm">
+                    <div id="case" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox" id="caseIndex">
+                        </div>
+
+                        <a class="left carousel-control" href="#case" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#case" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- 企业案例滚动 -->
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="indexSelectNav">
+                        <div class="selectNav">
+                            <div class="selectBtn">
+                                <span>企业案例</span>
+                                <select id="caseList" onchange="caseChoiceArea()">
+                                    <option disabled="true">--地区--</option>
+                                    <option value="0">全部</option>
+                                </select>
+                            </div>
+                            <a href="example/exampleIndex.html">更多&nbsp;&gt;</a>
+                        </div>
+                        <p>CASES</p>
+                    </div>
+                    <div class="maquee" id="caseScroll">
+                        <ul id="caseScrollList"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 艾佳服务    pc端 -->
+        <section class="service hidden-sm hidden-xs">
+            <div class="mainTitle">
+                艾佳服务
+                <small>IKE SERVICE</small>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div>
+                        <div class="self">
+                            <div class="imgBox">
+                                <img src="../images/service1.png" class="img-responsive">
+                            </div>
+                            <div class="intro">
+                                <p>通信技术服务</p>
+                                包括施工、督导、设计、网优、监理等有线及无线通信技术服务
+                            </div>
+                        </div>
+                        <div class="goIn">
+                            <p class="name oneLine">广东电信800M2017年项目</p>
+                            <p class="oneLine">项目时间：2017.1-2017.6</p>
+                            <p class="bg">项目背景：中国电信决定2017年上半年完成800MHz频谱的全网重耕</p>
+                            <p class="result">项目效果：加速大力部署佛山地区800MNB-IOT网络、VoLTE、推动将CDMA语音转移到VoLTE,快速融入国际主流产业链</p>
+                            <button onclick="location.href='service/serviceContent.html#0'">了解详情</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div>
+                        <div class="self">
+                            <div class="imgBox">
+                                <img src="../images/service2.png" class="img-responsive">
+                            </div>
+                            <div class="intro">
+                                <p>软件开发定制</p>
+                                APP开发、云服务、软件测试等软件制定开发与服务
+                            </div>
+                        </div>
+                        <div class="goIn">
+                            <p class="name oneLine">项目管理云平台</p>
+                            <p class="oneLine">项目时间：2016.9-2016.12</p>
+                            <p class="result">项目背景：为了解决项目难以掌握，项目经验不能进行交互，不能为公司其余业务、资金等提供项目保障等问题，公司自主研发了项目管理云平台</p>
+                            <p class="bg">项目效果：一个扁平协作、开放透明的项目管理平台。</p>
+                            <button onclick="location.href='service/serviceContent.html#1'">了解详情</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div>
+                        <div class="self">
+                            <div class="imgBox">
+                                <img src="../images/service3.png" class="img-responsive">
+                            </div>
+                            <div class="intro">
+                                <p>传感器智能系统集成</p>
+                                智能小区、物联网、局域网、入网行为管理等智能智慧系统集成方案及实施
+                            </div>
+                        </div>
+                        <div class="goIn">
+                            <p class="name oneLine">国防大学信息作战与指挥训练教研部实验室三军作战调度系统集成项目</p>
+                            <p class="result longText">项目背景：本项目为国防大学信息作战与指挥训练教研部实验室三军作战调度通讯系统，实现全网统一管理。 公司经过调研、需求分析、方案输出、演示、方案优化、安装测试、试运行、二次开发、正式运行、验收培训等一系列服务过程，
+                                让集成后的系统能够满足国防大学信息....
+                            </p>
+                            <button onclick="location.href='service/serviceContent.html#2'">了解详情</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div>
+                        <div class="self">
+                            <div class="imgBox">
+                                <img src="../images/service4.png" class="img-responsive">
+                            </div>
+                            <div class="intro">
+                                <p>ICT营销策划</p>
+                                大数据营销、品牌架构、品牌LOGO/V1、营销活动等营销策划服务
+                            </div>
+                        </div>
+                        <div class="goIn">
+                            <p class="name oneLine">湘桂集团品牌定位项目</p>
+                            <p class="result longText">项目介绍：因品牌呈现老化问题，湘桂集团急需重新规划品牌定位与品牌形象。公司全面负责湘桂集团品牌形象升级建设，从品牌定位出发，包括LOGO、VI、产品包装等品牌表现形式，建立湘桂集团科技健康的全新品牌形象。</p>
+                            <button onclick="location.href='service/serviceContent.html#3'">了解详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 艾佳服务    移动端 -->
+        <section class="row service-phone visible-sm visible-xs">
+            <div class="mainTitle col-sm-12 col-xs-12">
+                艾佳服务
+                <small>IKE SERVICE</small>
+            </div>
+            <a class="col-sm-6 col-xs-12" href="service/serviceContent.html#0">
+                <div class="includeCont">
+                    <img src="../images/service1.png" class="img-responsive">
+                    <div class="intro">
+                        <p>通信技术服务</p>
+                        包括施工、督导、设计、网优、监理等有线及无线通信技术服务
+                    </div>
+                </div>
+            </a>
+            <a class="col-sm-6 col-xs-12" href="service/serviceContent.html#1">
+                <div class="includeCont">
+                    <img src="../images/service2.png" class="img-responsive">
+                    <div class="intro">
+                        <p>软件开发定制</p>
+                        APP开发、云服务、软件测试等软件制定开发与服务
+                    </div>
+                </div>
+            </a>
+            <a class="col-sm-6 col-xs-12" href="service/serviceContent.html#2">
+                <div class="includeCont">
+                    <img src="../images/service3.png" class="img-responsive">
+                    <div class="intro">
+                        <p>传感器智能系统集成</p>
+                        智能小区、物联网、局域网、入网行为管理等智能智慧系统集成方案及实施
+                    </div>
+                </div>
+            </a>
+            <a class="col-sm-6 col-xs-12" href="service/serviceContent.html#3">
+                <div class="includeCont">
+                    <img src="../images/service4.png" class="img-responsive">
+                    <div class="intro">
+                        <p>ICT营销策划</p>
+                        大数据营销、品牌架构、品牌LOGO/V1、营销活动等营销策划服务
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- 核心优势    pc端-->
+        <section class="core hidden-xs hidden-sm">
+            <div class="swiper-container swiper-left">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="mainTitle">
+                            艾佳核心优势
+                            <small>IKE TEAM</small>
+                        </div>
+                        <div class="text">
+                            <h1>行业特色与组合互相补充的多元化业务竞争力</h1>
+                            <p>——跨界思维下，动态通用人员池支撑多元化业务整合落地</p>
+                            <article>
+                                拥有传统的通信技术服务、软件开发定制、传感器智能系统集成、ICT营销策划四大业务。 各业务既可单独提供特色化服务，更可与其他业务进行衔接与转换，实现多元化整合。 通信技术服务与软件开发定制的组合，顺应了5G中的SDN（软件定义网络）和NFV（网络功能虚拟化）的发展要求；
+                                通信技术服务与传感器智能系统集成、软件开发相组合，是5G、物联网的发展趋势； ICT营销策划与通信、传感器智能系统集成、软件开发定制相组合，实现精准营销，是大数据智能化的典型应用。
+                            </article>
+                            <article>
+                                鼓励“一人多证、一专多能”把STEM（科学，技术，工程，数学）教学理念落地到跨专业整合实践，运用VR/AR 教学，加强培训效果，不断培养人员团队跨界学习、跨界思考的能力。建立了复合型动态人员池，人员池内除了拥有各专业的高级资深技术服务人员外，更多的是具备多种基础专业技能的通用型技术服务人员，选择本行业最专业的人带队，与其他本行业专业优先的具备一专多能、跨界思维的人员组成团队，快速反应市场，提供高效优质服务。
+                            </article>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mainTitle">
+                            艾佳核心优势
+                            <small>IKE TEAM</small>
+                        </div>
+                        <div class="text">
+                            <h1>创新、程序化、智能化的模块化管理竞争力</h1>
+                            <p>——让扁平化、模块话、集约化，去中心化，共享化的创新管理模式落实到自主开发的ISSP(智能服务共享平台)上</p>
+                            <article>
+                                为了顺应激发员工个性化发展，提高满足市场需求的管理需要,公司自主开发了ISSP（智能服务共享平台）。 平台整合了ERP（企业资源规划）、CRM（客户关系管理）、SCM（供应链管理）的核心要素，全面考虑“人”、“事”、“钱”、“客户”四大因素联动。
+                            </article>
+                            <article>
+                                深入挖掘数据、整合分析，应用数学建模和统计分析技巧，识别关键数据变量之间的关系， 在集约化目标的驱动下，各模块协同作业，降低边际成本，并通过高效决策、反馈与执行， 同时考虑各目标的动态变化与共享交互，把集约化、模块化、扁平化、去中心化、共享化的创新管理模式落实到公司的ISSP平台上，
+                                从而为客户带来优质高效的服务和管理保障。
+                            </article>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mainTitle">
+                            艾佳核心优势
+                            <small>IKE TEAM</small>
+                        </div>
+                        <div class="text">
+                            <h1>云平台与企业生态圈竞争力</h1>
+                            <p>——各云平台相互支撑、相互转化、实现资源互利共赢</p>
+                            <article>
+                                从业务到市场、从市场到规则、从规则到平台，再由平台到业务，不同的业务需求可依据不同的信息通信技术手段来分析优化，不同功能模块依据不同需求组合形成不同分类的云平台，各云平台经过对中小型企业、团队和个人的需进行求分类、统计与分析，提供以数据中心为核心的服务共享。
+                            </article>
+                            <article>
+                                每个云平台都是一个流量入口，每个云平台都是不同分类的社群，每个云平台都是一个可拓展的企业管理开放平台。各云平台上，各企业不仅可以免费使用平台上的系统功能模块，还可定制开发适合自身企业的系统功能模块来解决企业发展遇到的问题，通过展示自身信息与云平台上各企业、团队或个人进行平台内资源共享与交互。
+                                各云平台除了平台内共享交互形成的不同社群效应，跨界思维模式下，平台外各社群之间更能实现相互依托与转换，形成企业信息生态圈，达到生态圈内各云平台共存与共荣。
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-container swiper-right">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../images/index/advantage1.png" class="img-responsive">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/index/advantage2.png" class="img-responsive">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/index/advantage3.png" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="../images/index/ike.png" class="img-responsive">
+            </div>
+        </section>
+        <!-- 核心优势    移动端 -->
+        <section class="row core-phone visible-sm visible-xs">
+            <div class="mainTitle">
+                艾佳核心优势
+                <small>IKE TEAM</small>
+            </div>
+            <div class="col-sm-12 col-xs-12 text">
+                <h1>行业特色与组合互相补充的多元化业务竞争力</h1>
+                <p>——跨界思维下，动态通用人员池支撑多元化业务整合落地</p>
+                <article>
+                    拥有传统的通信技术服务、软件开发定制、传感器智能系统集成、ICT营销策划四大业务。 各业务既可单独提供特色化服务，更可与其他业务进行衔接与转换，实现多元化整合。 通信技术服务与软件开发定制的组合，顺应了5G中的SDN（软件定义网络）和NFV（网络功能虚拟化）的发展要求；
+                    通信技术服务与传感器智能系统集成、软件开发相组合，是5G、物联网的发展趋势； ICT营销策划与通信、传感器智能系统集成、软件开发定制相组合，实现精准营销，是大数据智能化的典型应用。
+                </article>
+                <article>
+                    鼓励“一人多证、一专多能”把STEM（科学，技术，工程，数学）教学理念落地到跨专业整合实践，运用VR/AR 教学，加强培训效果，不断培养人员团队跨界学习、跨界思考的能力。建立了复合型动态人员池，人员池内除了拥有各专业的高级资深技术服务人员外，更多的是具备多种基础专业技能的通用型技术服务人员，选择本行业最专业的人带队，与其他本行业专业优先的具备一专多能、跨界思维的人员组成团队，快速反应市场，提供高效优质服务。
+                </article>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <img src="../images/index/advantage1.png" class="img-responsive">
+            </div>
+            <div class="col-sm-12 col-xs-12 text">
+                <h1>创新、程序化、智能化的模块化管理竞争力</h1>
+                <p>——让扁平化、模块话、集约化，去中心化，共享化的创新管理模式落实到自主开发的ISSP(智能服务共享平台)上</p>
+                <article>
+                    为了顺应激发员工个性化发展，提高满足市场需求的管理需要,公司自主开发了ISSP（智能服务共享平台）。 平台整合了ERP（企业资源规划）、CRM（客户关系管理）、SCM（供应链管理）的核心要素，全面考虑“人”、“事”、“钱”、“客户”四大因素联动。
+                </article>
+                <article>
+                    深入挖掘数据、整合分析，应用数学建模和统计分析技巧，识别关键数据变量之间的关系， 在集约化目标的驱动下，各模块协同作业，降低边际成本，并通过高效决策、反馈与执行， 同时考虑各目标的动态变化与共享交互，把集约化、模块化、扁平化、去中心化、共享化的创新管理模式落实到公司的ISSP平台上，
+                    从而为客户带来优质高效的服务和管理保障。
+                </article>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <img src="../images/index/advantage2.png" class="img-responsive">
+            </div>
+            <div class="col-sm-12 col-xs-12 text">
+                <h1>云平台与企业生态圈竞争力</h1>
+                <p>——各云平台相互支撑、相互转化、实现资源互利共赢</p>
+                <article>
+                    从业务到市场、从市场到规则、从规则到平台，再由平台到业务，不同的业务需求可依据不同的信息通信技术手段来分析优化，不同功能模块依据不同需求组合形成不同分类的云平台，各云平台经过对中小型企业、团队和个人的需进行求分类、统计与分析，提供以数据中心为核心的服务共享。
+                </article>
+                <article>
+                    每个云平台都是一个流量入口，每个云平台都是不同分类的社群，每个云平台都是一个可拓展的企业管理开放平台。各云平台上，各企业不仅可以免费使用平台上的系统功能模块，还可定制开发适合自身企业的系统功能模块来解决企业发展遇到的问题，通过展示自身信息与云平台上各企业、团队或个人进行平台内资源共享与交互。
+                    各云平台除了平台内共享交互形成的不同社群效应，跨界思维模式下，平台外各社群之间更能实现相互依托与转换，形成企业信息生态圈，达到生态圈内各云平台共存与共荣。
+                </article>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <img src="../images/index/advantage3.png" class="img-responsive">
+            </div>
+        </section>
+
+        <!-- 合作伙伴 -->
+        <section class="partner hidden-xs hidden-sm">
+            <div class="mainTitle">
+                合作伙伴
+                <small>IKE TEAM</small>
+            </div>
+            <div class="img">
+                <img src="../images/index/p6.png" class="img-responsive">
+                <img src="../images/index/p5.png" class="img-responsive">
+                <img src="../images/index/p8.jpg" class="img-responsive">
+                <img src="../images/index/p1.png" class="img-responsive">
+                <img src="../images/index/p3.png" class="img-responsive">
+                <img src="../images/index/p2.png" class="img-responsive">
+            </div>
+            <div class="img">
+                <img src="../images/index/p7.jpg" class="img-responsive">
+                <img src="../images/index/p10.jpg" class="img-responsive">
+                <img src="../images/index/p4.png" class="img-responsive">
+                <img src="../images/index/p9.jpg" class="img-responsive">
+                <img src="../images/index/p11.jpg" class="img-responsive">
+            </div>
+        </section>
+    </div>
+
+    <!--底部导航-->
+    <footer></footer>
+    <!-- 右侧 返回顶部按钮 -->
+    <div class="return hidden-xs" id="back">
+        <span class="glyphicon glyphicon-menu-up"></span>
+        <p>TOP</p>
+    </div>
+    <!-- 右侧 进入新ISSP系统 -->
+    <div class="goISSP hidden-xs">
+        <a href="https://show.issp.bjike.com/index">
+            <img src="../images/index/newISSP.gif" class="img-responsive">
+        </a>
+    </div>
+    <!-- 右侧 扫一扫二维码 -->
+    <div class="qrcode hidden-xs">
+        <div class="left"></div>
+        <div class="right">
+            <div class="top">
+                &nbsp;扫一扫
+                <br/>APP下载
+            </div>
+            <ul>
+                <li>
+                    <img src="../images/index/big0.png" alt="ISSP先行版">
+                    <p>ISSP先行版</p>
+                </li>
+                <li>
+                    <img src="../images/index/big1.png" alt="社区联盟">
+                    <p>社区联盟</p>
+                </li>
+                <li>
+                    <img src="../images/index/big2.png" alt="六度商圈">
+                    <p>六度商圈</p>
+                </li>
+                <li>
+                    <img src="../images/index/big3.png" alt="艾佳物联网仿真模拟平台">
+                    <p>艾佳物联网仿真模拟平台</p>
+                </li>
+            </ul>
+            <div class="bottom">
+                <img src="../images/index/up.png" alt="收起">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="/js/tools.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/swiper.min.js"></script>
+<script src="/js/all.js"></script>
+<script src="/js/ajaxIndex.js"></script>
+
